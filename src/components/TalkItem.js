@@ -16,7 +16,6 @@ import BottomBar from "../layout/BottomBar";
 
 function TalkItem(props) {
   function navigateTo(url) {
-    console.log(url);
     window.open(url, "_blank");
   }
 
@@ -33,8 +32,12 @@ function TalkItem(props) {
                 >
                   {props.title}
                 </Typography>
-                <Typography variant="h4" sx={{ color: "primary.contrastText" }}>
-                  <Timer />
+                <Typography
+                  variant="h4"
+                  component="span"
+                  sx={{ color: "primary.contrastText" }}
+                >
+                  <Timer alt={`duration icon`} aria-hidden="true" />
                   {props.duration} minutes
                 </Typography>
                 )
@@ -55,23 +58,32 @@ function TalkItem(props) {
               >
                 <Grid item xs={5} sm={6} md={6}>
                   <Avatar
-                    alt="Name"
+                    alt={`${props.speakerName} avatar`}
                     src={props.speakerPicture}
                     sx={{ width: [100, 200, 200], height: [100, 200, 200] }}
                   />
                 </Grid>
 
-                <Grid item xs={7} sm={6} md={6}>
-                  <Typography variant="h3" component="div">
+                <Grid item container direction="column" xs={7} sm={6} md={6}>
+                  <Typography variant="h3" component="span">
                     {props.speakerName}
                   </Typography>
-                  <Typography variant="h4" color="text.secondary">
+                  <Typography
+                    variant="h4"
+                    component="span"
+                    color="text.secondary"
+                  >
                     {props.speakerJobTitle}
                   </Typography>
                 </Grid>
               </Grid>
 
-              <Typography variant="h6" sx={{ mb: 1.5 }} color="text.secondary">
+              <Typography
+                variant="h6"
+                component="span"
+                sx={{ mb: 1.5 }}
+                color="text.secondary"
+              >
                 Description
               </Typography>
               <Typography
@@ -91,12 +103,14 @@ function TalkItem(props) {
                 <IconButton
                   aria-label="twitter"
                   onClick={() => navigateTo(props.speakerTwitter)}
+                  alt="Speaker twitter link"
                 >
                   <Twitter />
                 </IconButton>
                 <IconButton
                   aria-label="github"
                   onClick={() => navigateTo(props.speakerGithub)}
+                  alt="Speaker github link"
                 >
                   <GitHub />
                 </IconButton>
@@ -104,6 +118,7 @@ function TalkItem(props) {
                 <IconButton
                   aria-label="linked"
                   onClick={() => navigateTo(props.speakerLinkedIn)}
+                  alt="Speaker linkedIn link"
                 >
                   <LinkedIn />
                 </IconButton>

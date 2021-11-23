@@ -21,38 +21,41 @@ function NavBar() {
           <MenuIcon />
         </IconButton>
         <Box
+          onClick={() => window.location.replace("/")}
           sx={{
-            width: 100,
-            filter: "grayscale(100%) invert(100%) brightness(150%)",
             display: "flex",
+            cursor: "pointer",
           }}
         >
-          <img
-            src="https://www.pega.com/themes/custom/pegawww_theme/images/pega-logo.svg"
-            alt="logo"
-          />
+          <Box
+            sx={{
+              width: 100,
+              filter: "grayscale(100%) invert(100%) brightness(150%)",
+              display: "flex",
+            }}
+          >
+            <img
+              src="https://www.pega.com/themes/custom/pegawww_theme/images/pega-logo.svg"
+              alt="Pega logo"
+            />
+          </Box>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            World
+          </Typography>
         </Box>
-
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          World
-        </Typography>
         <Box sx={{ flexGrow: 1 }} />
-        <Box sx={{ display: { xs: "none", sm: "flex", md: "flex" } }}>
+        <Box sx={{ display: { xs: "none", sm: "flex", md: "flex" }, gap: 4 }}>
           <Link to="">
-            <Button variant="text" sx={{ color: "primary.contrastText" }}>
+            <Typography variant="button" sx={{ color: "primary.contrastText" }}>
               Program
-            </Button>
+            </Typography>
           </Link>
-          <Link to="">
-            <Button variant="text" sx={{ color: "primary.contrastText" }}>
-              Speakers
-            </Button>
-          </Link>
-          <Link to="">
-            <Button variant="text" sx={{ color: "primary.contrastText" }}>
-              Replays
-            </Button>
-          </Link>
+          <Typography variant="button" sx={{ color: "primary.contrastText" }}>
+            Speakers
+          </Typography>
+          <Typography variant="button" sx={{ color: "primary.contrastText" }}>
+            Replays
+          </Typography>
         </Box>
       </Toolbar>
     </AppBar>

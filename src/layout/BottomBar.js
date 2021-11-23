@@ -38,22 +38,22 @@ function BottomBar(props) {
           <Grid item>
             <Link to={"/talks/" + props.talkId + "/resources"}>
               <StyledFab color="secondary" aria-label="resources">
-                <Assignment />
+                <Assignment alt="Resources" />
               </StyledFab>{" "}
             </Link>
           </Grid>
 
           <Grid item>
             <Link to={"/talks/" + props.talkId + "/feedback"}>
-              <StyledFab color="secondary" aria-label="comment">
-                <Sms />
+              <StyledFab color="secondary" aria-label="feedback">
+                <Sms alt="Feedback" />
               </StyledFab>
             </Link>
           </Grid>
 
           <Grid item>
-            <StyledFab color="secondary" aria-label="comment">
-              <Favorite />
+            <StyledFab color="secondary" aria-label="like">
+              <Favorite alt="Like" />
             </StyledFab>
           </Grid>
         </Grid>

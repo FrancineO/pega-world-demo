@@ -24,20 +24,25 @@ function TalkItemResources(props) {
           alignItems="center"
         >
           <Grid item xs={3} sm={2} md={2}>
-            <Link to={"/talks/" + props.id}>
-              <Fab color="secondary" aria-label="comment">
+            <Link to={"/talks/" + props.id} aria-label="Back to talk page">
+              <Fab color="secondary" aria-label="back" alt="Back">
                 <ArrowBack />
               </Fab>
             </Link>
           </Grid>
-          <Grid item xs={9} sm={10} md={10}>
+          <Grid item container xs={9} sm={10} md={10} direction="column">
             <Typography
               variant="h5"
+              component="span"
               sx={{ fontWeight: "bold", color: "primary.contrastText" }}
             >
               {props.title}
             </Typography>
-            <Typography variant="h6" sx={{ color: "primary.contrastText" }}>
+            <Typography
+              variant="h6"
+              component="span"
+              sx={{ color: "primary.contrastText" }}
+            >
               {props.speakerName}
             </Typography>
           </Grid>
@@ -66,10 +71,11 @@ function TalkItemResources(props) {
                   variant="h5"
                   sx={{ fontWeight: "bold", px: 2 }}
                   color="primary"
+                  component="span"
                 >
                   Resources
                 </Typography>
-                <Assignment color="success" />
+                <Assignment color="success" alt="Resources icon" />
               </Grid>
               <Grid
                 item

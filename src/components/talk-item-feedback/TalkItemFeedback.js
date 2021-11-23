@@ -22,7 +22,7 @@ function TalkItemFeedback(props) {
           alignItems="center"
         >
           <Grid item xs={3} sm={2} md={2}>
-            <Link to="/talk">
+            <Link to={"/talks/" + props.id}>
               <Fab color="secondary" aria-label="comment">
                 <ArrowBack />
               </Fab>
@@ -33,10 +33,10 @@ function TalkItemFeedback(props) {
               variant="h5"
               sx={{ fontWeight: "bold", color: "primary.contrastText" }}
             >
-              The Power to Simplify: What You Need to Crush Complexity
+              {props.title}
             </Typography>
             <Typography variant="h6" sx={{ color: "primary.contrastText" }}>
-              Alan Trefler
+              {props.speakerName}
             </Typography>
           </Grid>
         </Grid>
@@ -60,7 +60,11 @@ function TalkItemFeedback(props) {
                 alignItems="center"
                 sx={{ pb: 5 }}
               >
-                <Typography variant="h5" sx={{ fontWeight: "bold", px: 2 }}>
+                <Typography
+                  variant="h5"
+                  sx={{ fontWeight: "bold", px: 2 }}
+                  color="primary"
+                >
                   Give us your feedback
                 </Typography>
                 <Favorite color="error" />

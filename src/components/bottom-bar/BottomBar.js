@@ -18,7 +18,7 @@ const StyledFab = styled(Fab)({
   margin: "0 auto",
 });
 
-function BottomBar() {
+function BottomBar(props) {
   return (
     <AppBar
       position="fixed"
@@ -36,7 +36,7 @@ function BottomBar() {
           alignItems="center"
         >
           <Grid item>
-            <Link to="/talk/resources">
+            <Link to={"/talks/" + props.talkId + "/resources"}>
               <StyledFab color="secondary" aria-label="resources">
                 <Assignment />
               </StyledFab>{" "}
@@ -44,7 +44,7 @@ function BottomBar() {
           </Grid>
 
           <Grid item>
-            <Link to="/talk/feedback">
+            <Link to={"/talks/" + props.talkId + "/feedback"}>
               <StyledFab color="secondary" aria-label="comment">
                 <Sms />
               </StyledFab>

@@ -15,6 +15,11 @@ import { Box } from "@mui/system";
 import BottomBar from "../bottom-bar/BottomBar";
 
 function TalkItem(props) {
+  function navigateTo(url) {
+    console.log(url);
+    window.open(url, "_blank");
+  }
+
   return (
     <div>
       <Box>
@@ -32,13 +37,14 @@ function TalkItem(props) {
                   <Timer />
                   {props.duration} minutes
                 </Typography>
+                )
               </Grid>
             </Grid>
           </Container>
         </Parallax>
 
-        <Card className="cardContainer">
-          <Box className="cardContent">
+        <Card className="cardContainer" sx={{ display: "flex" }}>
+          <Box className="cardContent" sx={{ flexGrow: 1 }}>
             <CardContent>
               <Grid
                 container
@@ -50,7 +56,7 @@ function TalkItem(props) {
                 <Grid item xs={5} sm={6} md={6}>
                   <Avatar
                     alt="Name"
-                    src={require("../../assets/img/alan-trefler.png").default}
+                    src={props.speakerPicture}
                     sx={{ width: [100, 200, 200], height: [100, 200, 200] }}
                   />
                 </Grid>
@@ -60,7 +66,7 @@ function TalkItem(props) {
                     {props.speakerName}
                   </Typography>
                   <Typography variant="h4" color="text.secondary">
-                    {props.speakerJob}
+                    {props.speakerJobTitle}
                   </Typography>
                 </Grid>
               </Grid>
@@ -75,29 +81,39 @@ function TalkItem(props) {
               >
                 {props.description}
               </Typography>
-            </CardContent>
-            <Stack
-              direction="row"
-              justifyContent="center"
-              alignItems="center"
-              spacing={10}
-            >
-              <IconButton aria-label="twitter">
-                <Twitter />
-              </IconButton>
-              <IconButton aria-label="github">
-                <GitHub />
-              </IconButton>
+              <Box sx={{ flexGrow: 1 }} />
+              <Stack
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                spacing={10}
+              >
+                <IconButton
+                  aria-label="twitter"
+                  onClick={() => navigateTo(props.speakerTwitter)}
+                >
+                  <Twitter />
+                </IconButton>
+                <IconButton
+                  aria-label="github"
+                  onClick={() => navigateTo(props.speakerGithub)}
+                >
+                  <GitHub />
+                </IconButton>
 
-              <IconButton aria-label="linked">
-                <LinkedIn />
-              </IconButton>
-            </Stack>
+                <IconButton
+                  aria-label="linked"
+                  onClick={() => navigateTo(props.speakerLinkedIn)}
+                >
+                  <LinkedIn />
+                </IconButton>
+              </Stack>
+            </CardContent>
           </Box>
         </Card>
       </Box>
       <Box sx={{ height: 116 }}></Box>
-      <BottomBar></BottomBar>
+      <BottomBar talkId={props.id}></BottomBar>
     </div>
   );
 }

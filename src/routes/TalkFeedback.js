@@ -1,4 +1,4 @@
-import TalkItemFeedback from "../components/talk-item-feedback/TalkItemFeedback";
+import TalkItemFeedback from "../components/TalkItemFeedback";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getTalk } from "../talk-service";

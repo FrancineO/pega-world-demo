@@ -1,5 +1,5 @@
 import Avatar from "@mui/material/Avatar";
-import Parallax from "../parallax/Parallax";
+import Parallax from "./parallax/Parallax";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
@@ -12,7 +12,7 @@ import LinkedIn from "@mui/icons-material/LinkedIn";
 import GitHub from "@mui/icons-material/GitHub";
 import Timer from "@mui/icons-material/Timer";
 import { Box } from "@mui/system";
-import BottomBar from "../bottom-bar/BottomBar";
+import BottomBar from "../layout/BottomBar";
 
 function TalkItem(props) {
   function navigateTo(url) {
@@ -23,7 +23,7 @@ function TalkItem(props) {
   return (
     <div>
       <Box>
-        <Parallax filter image={require("../../assets/img/PW-bg.jpeg").default}>
+        <Parallax filter image={require("../assets/img/PW-bg.jpeg").default}>
           <Container maxWidth="md" sx={{ zIndex: 2 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={12} md={10}>

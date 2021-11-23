@@ -1,4 +1,4 @@
-import TalkItemResources from "../components/talk-item-resources/TalkItemResources";
+import TalkItemResources from "../components/TalkItemResources";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getTalk } from "../talk-service";

@@ -17,16 +17,21 @@ import LocationOn from "@mui/icons-material/LocationOn";
 import { Box } from "@mui/system";
 import BottomBar from "../layout/BottomBar";
 import { styled } from "@mui/material/styles";
+import { useState } from "react";
 
 const InfoTypography = styled(Typography)({
-  variant: "body2",
-  component: "span",
   fontWeight: "bold",
   display: "flex",
   alignItems: "center",
 });
 
 function TalkItem(props) {
+  const [liked, setLike] = useState(false);
+
+  function likeHandler() {
+    setLike(!liked);
+  }
+
   function navigateTo(url) {
     window.open(url, "_blank");
   }
@@ -105,7 +110,7 @@ function TalkItem(props) {
                       sx={{ mr: 2 }}
                       color="error"
                     />
-                    {props.likes} Likes
+                    {liked ? Number(props.likes) + 1 : props.likes} Likes
                   </InfoTypography>
                 </Grid>
               </Grid>
@@ -195,7 +200,7 @@ function TalkItem(props) {
         </Card>
       </Box>
       <Box sx={{ height: 116 }}></Box>
-      <BottomBar talkId={props.id}></BottomBar>
+      <BottomBar talkId={props.id} onLikeClick={likeHandler}></BottomBar>
     </div>
   );
 }

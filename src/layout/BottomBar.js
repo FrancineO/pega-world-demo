@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { styled } from "@mui/material/styles";
@@ -25,6 +24,12 @@ const ActionTypo = styled(Typography)({
 });
 
 function BottomBar(props) {
+  const [liked, setLike] = useState(false);
+
+  function likeHandler() {
+    setLike(!liked);
+    props.onLikeClick();
+  }
   return (
     <AppBar
       position="fixed"
@@ -86,10 +91,17 @@ function BottomBar(props) {
             justifyContent="center"
             alignItems="center"
           >
-            <StyledFab color="secondary" aria-label="like">
-              <Favorite alt="Like" />
+            <StyledFab
+              color="secondary"
+              aria-label="like"
+              onClick={likeHandler}
+            >
+              <Favorite
+                alt="Like"
+                color={liked ? "error" : "primary.contrastText"}
+              />
             </StyledFab>
-            <ActionTypo variant="button">Like</ActionTypo>
+            <ActionTypo variant="button">Like{liked && "d"}</ActionTypo>
           </Grid>
         </Grid>
       </Toolbar>

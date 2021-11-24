@@ -25,7 +25,7 @@ function Demo() {
       {talks.length &&
         talks.map((talk) => (
           <Card
-            sx={{ maxWidth: 345 }}
+            sx={{ maxWidth: 345, mb: 5 }}
             xs={12}
             sm={12}
             md={4}

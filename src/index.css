@@ -12,6 +12,7 @@ body {
   height: 30vh;
   background-image: url(./assets/img/PW-bg.jpeg);
   background-color: darkblue;
+  padding: 20px;
 }
 
 .cardContainer {

@@ -1,5 +1,4 @@
 import AppBar from "@mui/material/AppBar";
-import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
@@ -46,7 +45,10 @@ function NavBar() {
         <Box sx={{ flexGrow: 1 }} />
         <Box sx={{ display: { xs: "none", sm: "flex", md: "flex" }, gap: 4 }}>
           <Link to="">
-            <Typography variant="button" sx={{ color: "primary.contrastText" }}>
+            <Typography
+              variant="button"
+              sx={{ color: "primary.contrastText", textDecoration: "none" }}
+            >
               Program
             </Typography>
           </Link>

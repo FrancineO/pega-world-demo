@@ -57,7 +57,7 @@ function BottomBar(props) {
             >
               <Assignment alt="Resources" />
             </StyledFab>
-            <ActionTypo>Resources</ActionTypo>
+            <ActionTypo variant="button">Resources</ActionTypo>
           </Grid>
 
           <Grid
@@ -76,7 +76,7 @@ function BottomBar(props) {
             >
               <Sms alt="Feedback" />
             </StyledFab>
-            <ActionTypo>Feedback</ActionTypo>
+            <ActionTypo variant="button">Feedback</ActionTypo>
           </Grid>
 
           <Grid
@@ -89,7 +89,7 @@ function BottomBar(props) {
             <StyledFab color="secondary" aria-label="like">
               <Favorite alt="Like" />
             </StyledFab>
-            <ActionTypo>Like</ActionTypo>
+            <ActionTypo variant="button">Like</ActionTypo>
           </Grid>
         </Grid>
       </Toolbar>

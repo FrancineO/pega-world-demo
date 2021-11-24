@@ -8,6 +8,7 @@ import Grid from "@mui/material/Grid";
 import Sms from "@mui/icons-material/Sms";
 import Assignment from "@mui/icons-material/Assignment";
 import Favorite from "@mui/icons-material/Favorite";
+import { Typography } from "@mui/material";
 
 const StyledFab = styled(Fab)({
   position: "relative",
@@ -16,6 +17,11 @@ const StyledFab = styled(Fab)({
   left: 0,
   right: 0,
   margin: "0 auto",
+});
+
+const ActionTypo = styled(Typography)({
+  top: -20,
+  position: "relative",
 });
 
 function BottomBar(props) {
@@ -35,26 +41,55 @@ function BottomBar(props) {
           justifyContent="space-around"
           alignItems="center"
         >
-          <Grid item>
-            <Link to={"/talks/" + props.talkId + "/resources"}>
-              <StyledFab color="secondary" aria-label="resources">
-                <Assignment alt="Resources" />
-              </StyledFab>{" "}
-            </Link>
+          <Grid
+            item
+            display="flex"
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <StyledFab
+              color="secondary"
+              aria-label="resources"
+              onClick={() =>
+                (window.location.href = `/talks/${props.talkId}/resources`)
+              }
+            >
+              <Assignment alt="Resources" />
+            </StyledFab>
+            <ActionTypo>Resources</ActionTypo>
           </Grid>
 
-          <Grid item>
-            <Link to={"/talks/" + props.talkId + "/feedback"}>
-              <StyledFab color="secondary" aria-label="feedback">
-                <Sms alt="Feedback" />
-              </StyledFab>
-            </Link>
+          <Grid
+            item
+            display="flex"
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <StyledFab
+              color="secondary"
+              aria-label="feedback"
+              onClick={() =>
+                (window.location.href = `/talks/${props.talkId}/feedback`)
+              }
+            >
+              <Sms alt="Feedback" />
+            </StyledFab>
+            <ActionTypo>Feedback</ActionTypo>
           </Grid>
 
-          <Grid item>
+          <Grid
+            item
+            display="flex"
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+          >
             <StyledFab color="secondary" aria-label="like">
               <Favorite alt="Like" />
             </StyledFab>
+            <ActionTypo>Like</ActionTypo>
           </Grid>
         </Grid>
       </Toolbar>

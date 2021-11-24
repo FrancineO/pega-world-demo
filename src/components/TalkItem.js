@@ -11,6 +11,9 @@ import Twitter from "@mui/icons-material/Twitter";
 import LinkedIn from "@mui/icons-material/LinkedIn";
 import GitHub from "@mui/icons-material/GitHub";
 import Timer from "@mui/icons-material/Timer";
+import Event from "@mui/icons-material/Event";
+import Favorite from "@mui/icons-material/Favorite";
+import LocationOn from "@mui/icons-material/LocationOn";
 import { Box } from "@mui/system";
 import BottomBar from "../layout/BottomBar";
 
@@ -19,28 +22,110 @@ function TalkItem(props) {
     window.open(url, "_blank");
   }
 
+  function formatDate(date) {
+    console.log(date);
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? "pm" : "am";
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    var strTime = hours + ":" + minutes + " " + ampm;
+    return (
+      date.getMonth() +
+      1 +
+      "/" +
+      date.getDate() +
+      "/" +
+      date.getFullYear() +
+      " at " +
+      strTime
+    );
+  }
+
   return (
     <div>
       <Box>
         <Parallax filter image={require("../assets/img/PW-bg.jpeg").default}>
           <Container maxWidth="md" sx={{ zIndex: 2 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={12} md={10}>
+            <Grid container>
+              <Grid item xs={12} sm={12} md={9} sx={{ pr: 1 }}>
                 <Typography
                   variant="h2"
                   sx={{ fontWeight: "bold", color: "primary.contrastText" }}
                 >
                   {props.title}
                 </Typography>
-                <Typography
-                  variant="h4"
-                  component="span"
-                  sx={{ color: "primary.contrastText" }}
-                >
-                  <Timer alt={`duration icon`} aria-hidden="true" />
-                  {props.duration} minutes
-                </Typography>
-                )
+              </Grid>
+              <Grid
+                item
+                container
+                direction="column"
+                justifyContent="space-around"
+                xs={12}
+                sm={12}
+                md={3}
+              >
+                <Grid item container direction="column">
+                  <Typography
+                    variant="body2"
+                    component="span"
+                    sx={{ fontWeight: "bold", color: "primary.contrastText" }}
+                    display="flex"
+                    alignItems="center"
+                  >
+                    <Event alt="date icon" aria-hidden="true" sx={{ mr: 2 }} />
+                    {formatDate(new Date(props.dateTime))}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    component="span"
+                    sx={{ fontWeight: "bold", color: "primary.contrastText" }}
+                    display="flex"
+                    alignItems="center"
+                  >
+                    <LocationOn
+                      alt="location icon"
+                      aria-hidden="true"
+                      sx={{ mr: 2 }}
+                    />
+                    Conference Room : {props.conferenceRoom}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    component="span"
+                    sx={{
+                      fontWeight: "bold",
+                      color: "primary.contrastText",
+                    }}
+                    display="flex"
+                    alignItems="center"
+                  >
+                    <Timer
+                      alt="duration icon"
+                      aria-hidden="true"
+                      sx={{ mr: 2 }}
+                    />
+                    {props.duration} minutes
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography
+                    variant="body2"
+                    component="span"
+                    sx={{ fontWeight: "bold", color: "primary.contrastText" }}
+                    display="flex"
+                    alignItems="center"
+                  >
+                    <Favorite
+                      alt="like icon"
+                      aria-hidden="true"
+                      sx={{ mr: 2 }}
+                      color="error"
+                    />
+                    {props.likes} Likes
+                  </Typography>
+                </Grid>
               </Grid>
             </Grid>
           </Container>

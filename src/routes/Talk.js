@@ -27,6 +27,9 @@ function Talk() {
           speakerLinkedIn={talk.speakerLinkedIn}
           description={talk.description}
           duration={talk.duration}
+          conferenceRoom={talk.conferenceRoom}
+          dateTime={talk.dateTime}
+          likes={talk.likes}
         ></TalkItem>
       )}
     </Box>

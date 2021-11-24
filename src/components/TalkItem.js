@@ -16,6 +16,15 @@ import Favorite from "@mui/icons-material/Favorite";
 import LocationOn from "@mui/icons-material/LocationOn";
 import { Box } from "@mui/system";
 import BottomBar from "../layout/BottomBar";
+import { styled } from "@mui/material/styles";
+
+const InfoTypography = styled(Typography)({
+  variant: "body2",
+  component: "span",
+  fontWeight: "bold",
+  display: "flex",
+  alignItems: "center",
+});
 
 function TalkItem(props) {
   function navigateTo(url) {
@@ -67,56 +76,29 @@ function TalkItem(props) {
                 md={3}
               >
                 <Grid item container direction="column">
-                  <Typography
-                    variant="body2"
-                    component="span"
-                    sx={{ fontWeight: "bold", color: "primary.contrastText" }}
-                    display="flex"
-                    alignItems="center"
-                  >
+                  <InfoTypography color="primary.contrastText">
                     <Event alt="date icon" aria-hidden="true" sx={{ mr: 2 }} />
                     {formatDate(new Date(props.dateTime))}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    component="span"
-                    sx={{ fontWeight: "bold", color: "primary.contrastText" }}
-                    display="flex"
-                    alignItems="center"
-                  >
+                  </InfoTypography>
+                  <InfoTypography color="primary.contrastText">
                     <LocationOn
                       alt="location icon"
                       aria-hidden="true"
                       sx={{ mr: 2 }}
                     />
                     Conference Room : {props.conferenceRoom}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    component="span"
-                    sx={{
-                      fontWeight: "bold",
-                      color: "primary.contrastText",
-                    }}
-                    display="flex"
-                    alignItems="center"
-                  >
+                  </InfoTypography>
+                  <InfoTypography color="primary.contrastText">
                     <Timer
                       alt="duration icon"
                       aria-hidden="true"
                       sx={{ mr: 2 }}
                     />
                     {props.duration} minutes
-                  </Typography>
+                  </InfoTypography>
                 </Grid>
                 <Grid item>
-                  <Typography
-                    variant="body2"
-                    component="span"
-                    sx={{ fontWeight: "bold", color: "primary.contrastText" }}
-                    display="flex"
-                    alignItems="center"
-                  >
+                  <InfoTypography color="primary.contrastText">
                     <Favorite
                       alt="like icon"
                       aria-hidden="true"
@@ -124,7 +106,7 @@ function TalkItem(props) {
                       color="error"
                     />
                     {props.likes} Likes
-                  </Typography>
+                  </InfoTypography>
                 </Grid>
               </Grid>
             </Grid>

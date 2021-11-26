@@ -5,8 +5,10 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
+  const navigate = useNavigate();
   return (
     <AppBar position="sticky" sx={{}}>
       <Toolbar>
@@ -20,7 +22,7 @@ function NavBar() {
           <MenuIcon />
         </IconButton>
         <Box
-          onClick={() => window.location.replace("/")}
+          onClick={() => navigate("/")}
           sx={{
             display: "flex",
             cursor: "pointer",

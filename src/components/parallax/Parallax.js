@@ -10,10 +10,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import styles from "./parallaxStyle.js";
 
 const useStyles = makeStyles(styles);
+const minWidth = 768;
 
 export default function Parallax(props) {
   let windowScrollTop;
-  if (window.innerWidth >= 768) {
+  if (window.innerWidth >= minWidth) {
     windowScrollTop = window.pageYOffset / 3;
   } else {
     windowScrollTop = 0;
@@ -22,11 +23,11 @@ export default function Parallax(props) {
     "translate3d(0," + windowScrollTop + "px,0)"
   );
   React.useEffect(() => {
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= minWidth) {
       window.addEventListener("scroll", resetTransform);
     }
     return function cleanup() {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= minWidth) {
         window.removeEventListener("scroll", resetTransform);
       }
     };

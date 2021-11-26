@@ -7,7 +7,8 @@ import Grid from "@mui/material/Grid";
 import Sms from "@mui/icons-material/Sms";
 import Assignment from "@mui/icons-material/Assignment";
 import Favorite from "@mui/icons-material/Favorite";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import { useNavigate } from "react-router-dom";
 
 const StyledFab = styled(Fab)({
   position: "relative",
@@ -24,6 +25,7 @@ const ActionTypo = styled(Typography)({
 });
 
 function BottomBar(props) {
+  const navigate = useNavigate();
   const [liked, setLike] = useState(false);
 
   function likeHandler() {
@@ -56,9 +58,7 @@ function BottomBar(props) {
             <StyledFab
               color="secondary"
               aria-label="resources"
-              onClick={() =>
-                (window.location.href = `/talks/${props.talkId}/resources`)
-              }
+              onClick={() => navigate(`/talks/${props.talkId}/resources`)}
             >
               <Assignment alt="Resources" />
             </StyledFab>
@@ -75,9 +75,7 @@ function BottomBar(props) {
             <StyledFab
               color="secondary"
               aria-label="feedback"
-              onClick={() =>
-                (window.location.href = `/talks/${props.talkId}/feedback`)
-              }
+              onClick={() => navigate(`/talks/${props.talkId}/feedback`)}
             >
               <Sms alt="Feedback" />
             </StyledFab>

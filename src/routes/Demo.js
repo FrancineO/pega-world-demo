@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { getTalks } from "../talk-service";
 import Card from "@mui/material/Card";
@@ -7,8 +6,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import CardActionArea from "@mui/material/CardActionArea";
 import Grid from "@mui/material/Grid";
+import { useNavigate } from "react-router-dom";
 
 function Demo() {
+  const navigate = useNavigate();
   const [talks, setTalks] = useState([]);
   useEffect(() => {
     getTalks().then((data) => {
@@ -29,7 +30,7 @@ function Demo() {
             xs={12}
             sm={12}
             md={4}
-            onClick={() => (window.location.href = `/talks/${talk.id}`)}
+            onClick={() => navigate(`/talks/${talk.id}`)}
           >
             <CardActionArea>
               <CardMedia

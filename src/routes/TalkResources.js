@@ -1,7 +1,7 @@
 import TalkItemResources from "../components/TalkItemResources";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getTalk } from "../talk-service";
+import { getTalk } from "../services/talk-service";
 import Box from "@mui/material/Box";
 
 function TalkResources() {

@@ -1,5 +1,5 @@
 const url = "https://api.airtable.com/v0/appxX0NbJgCKlSD1O/Talk";
-const apiKey = process.env.AIRTABLE_KEY;
+const apiKey = process.env.REACT_APP_AIRTABLE_KEY;
 
 export function getTalks() {
   return fetch(`${url}?api_key=${apiKey}`).then((response) => {

@@ -31,6 +31,7 @@ function Demo() {
             sm={12}
             md={4}
             onClick={() => navigate(`/talks/${talk.id}`)}
+            key={talk.id}
           >
             <CardActionArea>
               <CardMedia
